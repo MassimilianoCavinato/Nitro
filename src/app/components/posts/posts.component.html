@@ -1,0 +1,67 @@
+<div class='top-bar nitro-theme'>
+    Group Nitro posts by
+    <mat-form-field>
+        <mat-select [(value)]="group_type" (selectionChange)="setTree()">
+            <mat-option selected value="week_date">WEEK</mat-option>
+            <mat-option value="author">AUTHOR</mat-option>
+            <mat-option value="location">LOCATION</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class='loading-message' *ngIf="posts.length === 0">
+    Loading Posts ...
+</div>
+<div  *ngFor="let node of tree; let node_index = index">
+    <div class='post-group nitro-theme'
+        (click)="toggleGroup(node_index)"
+    >
+        <div *ngIf="node.open">&#9660;</div>
+        <div *ngIf="!node.open">&#9654;</div>
+        <div>{{node.name}}</div> 
+        <div>( {{node.children.length}} posts )</div>
+    </div>
+    <div *ngIf="node.open">
+        <mat-card class='post-item' *ngFor="let post of node.children">
+            <mat-card-header>
+                <div mat-card-avatar class='post-avatar'><!-- CONTAINS NITRO LOGO --></div>
+                <mat-card-title>{{post.author}}</mat-card-title>
+                <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+               {{ post.text }}
+              </p>
+              <mat-card-subtitle>{{post.week_date}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+                <button *ngIf="editing_post_id !== post.id" mat-button (click)="onEditPost(post.id)">Edit</button>
+            </mat-card-actions>
+            <mat-card-footer *ngIf="editing_post_id === post.id" class='post-editor'>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Author</mat-label>
+                    <input  
+                        matInput 
+                        placeholder="John Doe" 
+                        type="text"
+                        [(ngModel)]="edit_author"
+                    >
+                </mat-form-field>
+                <br/>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Location</mat-label>
+                    <input 
+                        matInput 
+                        placeholder="San Francisco" 
+                        type="text"
+                        [(ngModel)]="edit_location"
+                    >
+                </mat-form-field>
+                <br/>
+                <div class='post-editor-actions'>
+                    <button mat-stroked-button color="warn" (click)="onCancelEditPost()">Cancel</button> 
+                    <button [disabled]="edit_author.length === 0 || edit_location.length === 0" mat-stroked-button color="primary" (click)="onSubmitEditPost()">Submit Changes</button>
+                </div>
+            </mat-card-footer>
+          </mat-card>
+    </div>
+</div>

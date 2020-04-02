@@ -1,0 +1,76 @@
+
+.top-bar{
+    background-color: blue;
+    font-size: 1.5em;
+    padding: 4px 32px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#deefff+0,98bede+100;Blue+3D+%2310 */
+    background: #deefff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #deefff 0%, #98bede 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #deefff 0%,#98bede 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* IE6-9 */
+    select{
+        width: 400px;
+    }
+}
+.nitro-theme{
+    background: #606c88; /* Old browsers */
+    background: -moz-linear-gradient(top,  #606c88 0%, #3f4c6b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #606c88 0%,#3f4c6b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #606c88 0%,#3f4c6b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
+    color: #F15F00;
+}
+
+.loading-message{
+    text-align: center;
+    padding: 32px;
+    font-size: 4em;
+    color: #ccc;
+}
+.post-counter{
+    float: right;
+}
+.post-item{
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    margin: 8px;
+    -webkit-box-shadow: 10px 10px 4px -6px rgba(204,204,204,1);
+    -moz-box-shadow: 10px 10px 4px -6px rgba(204,204,204,1);
+    box-shadow: 10px 10px 4px -6px rgba(204,204,204,1);
+
+}
+.post-group{
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 16px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#606c88+0,3f4c6b+100;Grey+3D+%232 */
+    
+    margin: 8px 0px;
+    display: flex;
+    align-items: flex-start;
+    >div{
+        margin: 16px;
+    }
+}
+
+.post-avatar{
+    background-image: url('https://s3.amazonaws.com/cf-nitroengassets-prod/images/sites/gonitro/brand-assets/logos-dont-5.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    margin-top: -8px;
+}
+
+.post-editor{
+    padding: 16px;
+    mat-form-field{
+        width: 100%;
+    }
+    .post-editor-actions{
+        display: flex;
+        justify-content: space-between;
+    }
+}
